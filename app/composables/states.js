@@ -1,1 +1,0 @@
-export const useLanguage = () => useState("language", () => "en")

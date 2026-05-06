@@ -9,6 +9,7 @@ const { story } = await useAsyncStoryblok(
     api: {
       version: 'published',
       language: locale.value,
+      resolve_relations: "overview.items",
     },
   },
 );

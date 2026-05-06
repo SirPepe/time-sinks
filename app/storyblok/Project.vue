@@ -4,8 +4,7 @@ defineProps({ blok: Object })
 
 <template>
   <div class="teaser">
-    <h2>{{ blok.name }}</h2>
-    <p>{{ blok.link }}</p>
-    <p>{{ blok.description }}</p>
+    <h2><a :href="blok.link.url">{{ blok.title }}</a></h2>
+    <StoryblokRichText :doc="fromMarkdown(blok.description)" />
   </div>
 </template>
