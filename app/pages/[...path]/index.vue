@@ -1,25 +1,17 @@
 <script setup>
-const ALTERNATIVE_LANGUAGES = ["de"];
-let language = "en";
+const { locale } = useI18n()
 
-const path = useRoute().params.path ?? [];
-
-if (ALTERNATIVE_LANGUAGES.includes(path[0])) {
-  language = path[0];
-  path.shift();
-}
+const path = useRoute().params.path || [];
 
 const { story } = await useAsyncStoryblok(
   path.join('/') || "home",
   {
     api: {
       version: 'published',
-      language,
+      language: locale.value,
     },
   },
 );
-
-console.log({path, story, language});
 </script>
 
 <template>

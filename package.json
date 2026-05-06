@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/i18n": "^10.3.0",
     "@storyblok/nuxt": "^10.1.4",
     "@storyblok/richtext": "^4.2.1",
     "nuxt": "^4.4.4",
