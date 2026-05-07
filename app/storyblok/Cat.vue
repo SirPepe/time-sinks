@@ -3,11 +3,11 @@ defineProps({ blok: Object })
 </script>
 
 <template>
-  <div class="teaser">
+  <div class="cat" v-editable="blok">
     <h2>{{ blok.title }}</h2>
-    <p>
+    <figure>
       <img :src="blok.picture.filename" :alt="blok.picture.alt">
-    </p>
+    </figure>
     <StoryblokRichText :doc="fromMarkdown(blok.description)" />
   </div>
 </template>

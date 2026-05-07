@@ -6,8 +6,11 @@ const path = useRoute().params.path || [];
 const { story } = await useAsyncStoryblok(
   path.join('/') || "home",
   {
+    // Enable deep reactivity to fix live editing, see
+    // https://github.com/storyblok/monoblok/issues/210#issuecomment-3227884450
+    deep: true,
     api: {
-      version: 'published',
+      version: 'draft',
       language: locale.value,
       resolve_relations: "overview.items",
     },

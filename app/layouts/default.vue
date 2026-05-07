@@ -3,9 +3,13 @@
 </script>
 
 <template>
-  <div>
-    <h1>Layout!</h1>
-    <Nav />
-    <slot />
-  </div>
+  <header>
+    <div class="container">
+      <h1>Peters side projects & other time sinks</h1>
+      <Nav />
+    </div>
+  </header>
+    <main>
+      <slot />
+    </main>
 </template>

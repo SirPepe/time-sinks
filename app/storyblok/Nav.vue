@@ -10,18 +10,21 @@
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <li v-for="item in stories" :key="item.uuid">
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__list__item" v-for="item in stories" :key="item.uuid">
         <NuxtLink :href="$localePath(item.full_slug === 'home' ? '/' : '/' + item.full_slug)">{{ item.content.title }}</NuxtLink>
-        <ul v-if="item.content.items?.length">
-          <li v-for="item in item.content.items" :key="item.uuid">
+        <ul class="nav__list nav__list--nested" v-if="item.content.items?.length">
+          <li class="nav__list__item nav__list__item--nested" v-for="item in item.content.items" :key="item.uuid">
             <NuxtLink :href="$localePath(`/${item.full_slug}`)">{{ item.content.title }}</NuxtLink>
           </li>
         </ul>
       </li>
     </ul>
-    <NuxtLink :to="$switchLocalePath('en')">English</NuxtLink>
-    <NuxtLink :to="$switchLocalePath('de')">Deutsch</NuxtLink>
+    <div class="nav__languages">
+      <NuxtLink :to="$switchLocalePath('en')">EN</NuxtLink>
+      |
+      <NuxtLink :to="$switchLocalePath('de')">DE</NuxtLink>
+    </div>
   </nav>
 </template>
