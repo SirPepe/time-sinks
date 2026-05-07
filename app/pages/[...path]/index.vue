@@ -17,5 +17,6 @@ const { story } = await useAsyncStoryblok(path.join("/") || "home", {
 </script>
 
 <template>
+  <p>Debug: {{ process.env.CONTENT_VERSION }}</p>
   <StoryblokComponent v-if="story" :blok="story.content" />
 </template>
