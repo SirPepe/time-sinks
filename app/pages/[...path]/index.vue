@@ -9,7 +9,8 @@ const { story } = await useAsyncStoryblok(path.join("/") || "home", {
   // https://github.com/storyblok/monoblok/issues/210#issuecomment-3227884450
   deep: true,
   api: {
-    version: config.contentVersion === "published" ? "published" : "draft",
+    version:
+      config.public.contentVersion === "published" ? "published" : "draft",
     language: locale.value,
     resolve_relations: "overview.items",
   },
@@ -17,6 +18,5 @@ const { story } = await useAsyncStoryblok(path.join("/") || "home", {
 </script>
 
 <template>
-  <p>Debug: {{ config }}</p>
   <StoryblokComponent v-if="story" :blok="story.content" />
 </template>

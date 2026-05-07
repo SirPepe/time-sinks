@@ -3,7 +3,7 @@ const { locale } = useI18n();
 const config = useRuntimeConfig();
 const storyblokApi = useStoryblokApi();
 const stories = await storyblokApi.getAll("cdn/stories", {
-  version: config.contentVersion === "published" ? "published" : "draft",
+  version: config.public.contentVersion === "published" ? "published" : "draft",
   level: 1,
   resolve_relations: "overview.items",
   sort_by: "created_at:asc",
