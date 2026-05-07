@@ -1,31 +1,33 @@
 import mkcert from "vite-plugin-mkcert";
 
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: "en",
     locales: [
-      { code: 'en', name: 'English' },
-      { code: 'de', name: 'German' }
-    ]
+      { code: "en", name: "English" },
+      { code: "de", name: "German" },
+    ],
   },
-  modules: [[
-    '@storyblok/nuxt',
-    {
-      accessToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
-      apiOptions: {
-        region: 'eu',
+  modules: [
+    [
+      "@storyblok/nuxt",
+      {
+        accessToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
+        apiOptions: {
+          region: "eu",
+        },
       },
-    },
-  ], '@nuxtjs/i18n'],
+    ],
+    "@nuxtjs/i18n",
+  ],
 
   devServer: {
     https: true,
   },
   vite: {
     plugins: [mkcert()],
-  }
-})
+  },
+});

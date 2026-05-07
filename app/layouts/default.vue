@@ -1,5 +1,5 @@
 <script>
-  import '~/assets/index.css';
+import "~/assets/index.css";
 </script>
 
 <template>
@@ -9,7 +9,7 @@
       <Nav />
     </div>
   </header>
-    <main>
-      <slot />
-    </main>
+  <main>
+    <slot />
+  </main>
 </template>
