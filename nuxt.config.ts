@@ -3,8 +3,16 @@ import mkcert from "vite-plugin-mkcert";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   dev: process.env.CONTENT_VERSION === "draft" ? true : undefined,
+  runtimeConfig: {
+    public: {
+      storyblokDeliveryApiToken: "",
+      contentVersion: "",
+    },
+  },
   compatibilityDate: "2025-07-15",
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+  },
   i18n: {
     defaultLocale: "en",
     locales: [
@@ -16,7 +24,7 @@ export default defineNuxtConfig({
     [
       "@storyblok/nuxt",
       {
-        accessToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
+        accessToken: process.env.NUXT_PUBLIC_STORYBLOK_DELIVERY_API_TOKEN,
         apiOptions: {
           region: "eu",
         },
@@ -24,7 +32,6 @@ export default defineNuxtConfig({
     ],
     "@nuxtjs/i18n",
   ],
-
   devServer: {
     https: true,
   },
