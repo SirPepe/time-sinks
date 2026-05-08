@@ -2,19 +2,25 @@
 const { locale } = useI18n();
 const config = useRuntimeConfig();
 const storyblokApi = useStoryblokApi();
-const stories = await storyblokApi.getAll("cdn/stories", {
-  version: config.public.contentVersion === "published" ? "published" : "draft",
-  level: 1,
-  resolve_relations: "overview.items",
-  sort_by: "created_at:asc",
-  language: locale.value,
-});
+const { data } = await useAsyncData(
+  computed(() => `nav-${locale.value}`),
+  async () => {
+    return await storyblokApi.getAll("cdn/stories", {
+      version:
+        config.public.contentVersion === "published" ? "published" : "draft",
+      level: 1,
+      resolve_relations: "overview.items",
+      sort_by: "created_at:asc",
+      language: locale.value,
+    });
+  },
+);
 </script>
 
 <template>
   <nav class="nav">
     <ul class="nav__list">
-      <li class="nav__list__item" v-for="item in stories" :key="item.uuid">
+      <li class="nav__list__item" v-for="item in data" :key="item.uuid">
         <NuxtLink
           :href="
             $localePath(item.full_slug === 'home' ? '/' : '/' + item.full_slug)
