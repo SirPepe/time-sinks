@@ -45,7 +45,8 @@ nav a {
   }
 }
 
-.router-link-active {
+.nav__list__item:has(.nav__list--nested .router-link-active) > a,
+.router-link-exact-active {
   font-weight: bold;
 }
 
