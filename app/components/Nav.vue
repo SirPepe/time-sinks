@@ -2,10 +2,10 @@
 const { locale } = useI18n();
 const config = useRuntimeConfig();
 const storyblokApi = useStoryblokApi();
-const { data } = await useAsyncData(
+const { data: stories } = await useAsyncData(
   computed(() => `nav-${locale.value}`),
-  async () => {
-    return await storyblokApi.getAll("cdn/stories", {
+  () => {
+    return storyblokApi.getAll("cdn/stories", {
       version:
         config.public.contentVersion === "published" ? "published" : "draft",
       level: 1,
@@ -15,12 +15,14 @@ const { data } = await useAsyncData(
     });
   },
 );
+const { data: spaceData } = await storyblokApi.get("cdn/spaces/me", {});
+const languages = ["en", ...spaceData.space.language_codes];
 </script>
 
 <template>
   <nav class="nav">
     <ul class="nav__list">
-      <li class="nav__list__item" v-for="item in data" :key="item.uuid">
+      <li class="nav__list__item" v-for="item in stories" :key="item.uuid">
         <NuxtLink
           :href="
             $localePath(item.full_slug === 'home' ? '/' : '/' + item.full_slug)
@@ -44,9 +46,12 @@ const { data } = await useAsyncData(
       </li>
     </ul>
     <div class="nav__languages">
-      <NuxtLink :to="$switchLocalePath('en')">EN</NuxtLink>
-      |
-      <NuxtLink :to="$switchLocalePath('de')">DE</NuxtLink>
+      <NuxtLink
+        v-for="language in languages"
+        :key="language"
+        :to="$switchLocalePath(language)"
+        >{{ language.toUpperCase() }}</NuxtLink
+      >
     </div>
   </nav>
 </template>
