@@ -2,21 +2,27 @@
 const { locale } = useI18n();
 const config = useRuntimeConfig();
 const storyblokApi = useStoryblokApi();
-const { data: stories } = await useAsyncData(
-  computed(() => `nav-${locale.value}`),
-  () => {
-    return storyblokApi.getAll("cdn/stories", {
-      version:
-        config.public.contentVersion === "published" ? "published" : "draft",
-      level: 1,
-      resolve_relations: "overview.items",
-      sort_by: "created_at:asc",
-      language: locale.value,
-    });
-  },
-);
-const { data: spaceData } = await storyblokApi.get("cdn/spaces/me", {});
-const languages = ["en", ...spaceData.space.language_codes];
+const [{ data: stories }, { data: spaceData }] = await Promise.all([
+  useAsyncData(
+    computed(() => `nav-${locale.value}`),
+    () =>
+      storyblokApi.getAll("cdn/stories", {
+        version:
+          config.public.contentVersion === "published" ? "published" : "draft",
+        level: 1,
+        resolve_relations: "overview.items",
+        sort_by: "created_at:asc",
+        language: locale.value,
+      }),
+  ),
+  useAsyncData("space", () =>
+    storyblokApi.get("cdn/spaces/me", {}).then(({ data }) => data),
+  ),
+]);
+const languages = computed(() => [
+  "en",
+  ...spaceData.value.space.language_codes,
+]);
 </script>
 
 <template>
