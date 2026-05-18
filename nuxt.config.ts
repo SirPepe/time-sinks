@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     defaultLocale: "en",
     locales: [
       { code: "en", name: "English" },
-      { code: "de", name: "German" },
+      { code: "de", name: "Deutsch" },
     ],
   },
   modules: [
@@ -31,6 +31,17 @@ export default defineNuxtConfig({
       },
     ],
     "@nuxtjs/i18n",
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          "Noticia Text": {
+            wght: [400, 700],
+            ital: [400, 700],
+          },
+        },
+      },
+    ],
   ],
   devServer: {
     https: true,

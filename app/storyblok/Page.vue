@@ -3,7 +3,7 @@ defineProps({ blok: Object });
 </script>
 
 <template>
-  <main v-editable="blok">
+  <main>
     <StoryblokComponent
       v-for="currentBlok in blok.blocks"
       :key="currentBlok._uid"

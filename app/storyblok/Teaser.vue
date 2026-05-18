@@ -4,6 +4,6 @@ defineProps({ blok: Object });
 
 <template>
   <div class="teaser" v-editable="blok">
-    <h2>{{ blok.title }}</h2>
+    <h2 class="teaser__headline">{{ blok.title }}</h2>
   </div>
 </template>
