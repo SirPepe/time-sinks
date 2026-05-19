@@ -1,0 +1,48 @@
+{
+  "id": 1,
+  "created_at": "",
+  "updated_at": "",
+  "is_root": true,
+  "is_nestable": true,
+  "component_group_uuid": null,
+  "name": "project",
+  "description": "A single side project",
+  "internal_tag_ids": [],
+  "schema": {
+    "title": {
+      "required": true,
+      "type": "text",
+      "pos": 0
+    },
+    "link": {
+      "required": false,
+      "type": "multilink",
+      "pos": 1
+    },
+    "picture": {
+      "type": "asset",
+      "pos": 2
+    },
+    "short_description": {
+      "required": true,
+      "translatable": true,
+      "type": "text",
+      "pos": 3
+    },
+    "description": {
+      "required": true,
+      "translatable": true,
+      "type": "markdown",
+      "pos": 4
+    },
+    "other_links": {
+      "required": false,
+      "type": "bloks",
+      "restrict_components": true,
+      "component_whitelist": [
+        "see_also"
+      ],
+      "pos": 5
+    }
+  }
+}

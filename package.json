@@ -13,7 +13,10 @@
     "@nuxtjs/google-fonts": "3.2.0",
     "@nuxtjs/i18n": "^10.3.0",
     "@storyblok/nuxt": "^10.1.6",
+    "@storyblok/schema": "1.0.0-alpha.0",
     "nuxt": "^4.4.5",
+    "storyblok": "4.18.0-alpha.0",
+    "typescript": "^6.0.3",
     "vue": "^3.5.34",
     "vue-router": "^5.0.7"
   },

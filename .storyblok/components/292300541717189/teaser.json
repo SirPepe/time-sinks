@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "created_at": "",
+  "updated_at": "",
+  "is_root": false,
+  "is_nestable": true,
+  "component_group_uuid": null,
+  "name": "teaser",
+  "internal_tag_ids": [],
+  "schema": {
+    "title": {
+      "required": true,
+      "translatable": true,
+      "type": "text",
+      "pos": 0
+    }
+  }
+}

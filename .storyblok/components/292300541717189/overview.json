@@ -1,0 +1,34 @@
+{
+  "id": 1,
+  "created_at": "",
+  "updated_at": "",
+  "is_root": true,
+  "is_nestable": false,
+  "component_group_uuid": null,
+  "name": "overview",
+  "description": "",
+  "internal_tag_ids": [],
+  "schema": {
+    "title": {
+      "required": true,
+      "translatable": true,
+      "type": "text",
+      "pos": 0
+    },
+    "description": {
+      "translatable": true,
+      "type": "markdown",
+      "pos": 1
+    },
+    "items": {
+      "allow_advanced_search": true,
+      "display_name": "",
+      "entry_appearance": "card",
+      "is_reference_type": true,
+      "required": true,
+      "source": "internal_stories",
+      "type": "options",
+      "pos": 2
+    }
+  }
+}

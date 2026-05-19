@@ -1,0 +1,35 @@
+{
+  "id": 1,
+  "created_at": "",
+  "updated_at": "",
+  "is_root": true,
+  "is_nestable": true,
+  "component_group_uuid": null,
+  "name": "cat",
+  "description": "",
+  "internal_tag_ids": [],
+  "schema": {
+    "title": {
+      "required": true,
+      "type": "text",
+      "pos": 0
+    },
+    "picture": {
+      "required": true,
+      "type": "asset",
+      "pos": 1
+    },
+    "short_description": {
+      "required": true,
+      "translatable": true,
+      "type": "text",
+      "pos": 2
+    },
+    "description": {
+      "required": true,
+      "translatable": true,
+      "type": "markdown",
+      "pos": 3
+    }
+  }
+}

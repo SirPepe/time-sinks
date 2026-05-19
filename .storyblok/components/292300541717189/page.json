@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "created_at": "",
+  "updated_at": "",
+  "is_root": true,
+  "is_nestable": false,
+  "component_group_uuid": null,
+  "name": "page",
+  "internal_tag_ids": [],
+  "schema": {
+    "title": {
+      "required": true,
+      "translatable": true,
+      "type": "text",
+      "pos": 0
+    },
+    "blocks": {
+      "type": "bloks",
+      "pos": 1
+    }
+  }
+}
