@@ -18,4 +18,9 @@ import "~/assets/index.css";
       <slot />
     </div>
   </main>
+  <footer>
+    <div class="container">
+      <p>{{ $t("footer") }}</p>
+    </div>
+  </footer>
 </template>
